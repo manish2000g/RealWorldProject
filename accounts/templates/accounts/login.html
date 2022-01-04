@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>Login</title>
+{% endblock%}
+
+{% block main_content %}
+
+<div class= " image pb-5" style=" background-image:url(/static/images/loginbg.jpg)">
+<div class="container " >
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center">Login</h1>
+           {% include 'messages.html' %}
+            <div class="card py-2 px-2">
+                <form class="form" action="" method="POST">
+                    {% csrf_token %}
+                    {{ login_form | bootstrap_horizontal }}<button type="submit" class="btn btn-primary mt-3">Login</button>
+                </form>
+            </div>
+            <b class="mt-5">Don't have an account?</b><br>
+            <a class="btn btn-primary btn-sm mb-5" href="/register">Sign up</a>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Enter Username"
+    form_fields[2].placeholder = "Enter Password"
+
+    for (field in form_fields){
+    form_fields[field].className += ' my-3'
+    }
+</script>
+
+{% endblock %}

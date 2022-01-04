@@ -1,0 +1,77 @@
+{% extends 'admin_layout.html' %}
+{% block title %}
+<title>User Orders</title>
+{% endblock title %}
+{% block main_content %}
+
+<div class="container-fluid" style="min-height:300px;">
+    <div class="row">
+        <div class="col mt-4 mb-4">
+            <h1 class="text-center text-uppercase m-4 font-weight-bold">User Orders</h1>
+            {% include 'messages.html' %}
+            <div class="card shadow-lg ">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Ordered Date</th>
+                            <th>Contact No</th>
+                            <th>Delivery Location</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="align-items-center">
+                        {% for item in items %}
+                        <tr>
+                            <td>{{item.grocery.grocery_name}}</td>
+                            <td>Rs.{{item.grocery.grocery_price}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.created_date}}</td>
+                            <td>{{item.contact_no}}</td>
+                            <td>{{item.user_address}}</td>
+
+                            <td class="btn btn-light" id="btn">
+                                {% if item.status == "Pending" %}
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Pending
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="/admins/deliver/{{item.id}}">Delivered</a></li>
+                                    </ul>
+                                </div>
+
+                                {% else %}
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Delivered
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="/admins/pending/{{item.id}}">Pending</a></li>
+                                    </ul>
+                                </div>
+                                {% endif %}
+
+
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}

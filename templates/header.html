@@ -1,0 +1,41 @@
+{% load static%}
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container-fluid">
+        <a class="navbar-brand" href="/resort/home">All adventure Resort</a>
+<!--       <img class="img-fluid me-5" style="width:40px; height:30px;"-->
+<!--                     src="{% static 'images/activityanimated.png' %}" alt="Italian Trulli">-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link {{activate_user_activity}} light" href="/activities/activities_view" >All adventure Resort</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link {{activate_our_activities}} light" aria-current="page" href="/activities/user_cart">Our Activities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{activate_events}} white" href="/activities/user_order">Events</a>
+        </li>
+         <li class="nav-item">
+                    <a class="nav-link ms-5 btn btn-outline-light" href="/password_change">Change Password</a>
+         </li>
+         <li class="nav-item">
+                    <a class="nav-link ms-5 btn btn-outline-warning logout" href="/logout">Logout</a>
+         </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link {{activate_login}} btn btn-outline-light ms-4" href="/login">Sign in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{activate_register}} btn btn-outline-light ms-2" href="/register">Sign up</a>
+        </li>
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+<title>User home</title>
+{% endblock title %}
+{% block main_content %}
+<div class="home">
+<div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+  <div class="carousel-inner">
+       <div class="carousel-item">
+      <img src="{% static 'images/slider1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+      <div class="carousel-item">
+      <img src="{% static 'images/slider2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item active">
+      <img src="{% static 'images/slider3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container userdash mb-5 mt-5" style=" background-image: url(/)">
+     <H1 class="title">What we provide</H1> <br>
+        <b class="title" >These are the types of activities we provide to our customer.</b>
+    <div class="row justify-content-around">
+        {% for i in activity_types %}
+        {% if i.activity_type_name == "Non-vegeterian products" %}
+        <div class="card col-md-3 m-2 mt-5"  style=" background-color:#DE073B">
+            <img src="/{{i.activity_type_img}}" class="card-img-top" alt="...">
+            <div class="card-body" style=" background-color:#DE073B" >
+                <h5 class="card-title">{{i.activity_type_name}}</h5>
+                <p class="card-text">{{i.activity_type_description}}</p>
+            </div>
+        </div>
+        {% else %}
+        <div class="card col-md-3 m-2 mt-5" style=" background-color:#D8F6CE">
+            <img src="/{{i.activity_type_img}}" class="card-img-top" alt="...">
+            <div class="card-body"  >
+                <h5 class="card-title" >{{i.activity_type_name}}</h5>
+                <p class="card-text">{{i.activity_type_description}}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+ <div class="mt-5">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112754.44897380406!2d84.2103742441168!3d27.976252471299926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39950780deaf2177%3A0x33b3696137fa9dfb!2sByas!5e0!3m2!1sen!2snp!4v1640668321703!5m2!1sen!2snp"
+                 width="1600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+ </div>
+</div>
+{% endblock main_content %}
