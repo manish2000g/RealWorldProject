@@ -1,50 +1,22 @@
-
+<!DOCTYPE html>
 {% load static %}
-{% block title %}
-<title>Admin-Dashboard</title>
-{% endblock %}
-{% block main_content %}
-<style>
-    .card-body a{
-    text-decoration:none;
-    color:#fff;
-    }
-    .card-body a:hover{
-    color:orange;
-    }
-</style>
-<div class="container">
-    <h1>Admin Dashboard</h1>
-    {% include 'messages.html' %}
-    <div class="row">
-        <div class="col">
-            <div class="card text-white bg-success mb-3" style="max-width: 35rem;">
-                <div class="card-header text-center">Total Users</div>
-                <div class="card-body bg-success">
-                    <a href="/admins/users"><h1 class="card-title text-center">{{user}}</h1></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="card text-white bg-warning mb-3" style="max-width: 35rem;">
-                <div class="card-header text-center">Total Admins</div>
-                <div class="card-body bg-warning">
-                    <a href="/admins/admins"> <h1 class="card-title text-center">{{admin}}</h1>
-                    </a>
-                </div>
-                 </div>
-                 <div class="col">
-            <div class="card text-white bg-danger mb-3 mt-5" style="max-width: 35rem;">
-                <div class="card-header text-center">Order Details</div>
-                <div class="card-body bg-danger">
-                    <a href="/admins/show_order"><h1 class="card-title text-center">{{items}}</h1></a>
-                </div>
-        </div>
-    </div>
-            </div>
-        </div>
-    </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title%}
+    {{section.title}}
+    {% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+<div class="container_fluid">
+    {% include 'admin_header.html'%}
+    {% block main_content %}
+    {% endblock main_content%}
+    {% include 'admin_footer.html' %}
 </div>
-{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
