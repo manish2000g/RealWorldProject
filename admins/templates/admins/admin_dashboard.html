@@ -14,13 +14,14 @@
     color:orange;
     }
 
+
 </style>
-<div class="container">
+<div class="container" style="color:white">
     <h1>Admin Dashboard</h1>
     {% include 'messages.html' %}
     <div class="row">
 
-   {% csrf_token %}
+        {% csrf_token %}
         <div class="col">
             <div class="card text-white bg-success mb-3" style="max-width: 35rem;">
                 <div class="card-header text-center">Total Users</div>

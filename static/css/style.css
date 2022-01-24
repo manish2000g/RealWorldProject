@@ -3,3 +3,11 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
+.nav-focus:hover{
+    color:MidnightBlue !important;
+    }
+
+.navbg{
+    background-color:Snow}
+

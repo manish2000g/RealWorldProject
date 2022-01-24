@@ -6,22 +6,23 @@
 
 {% block main_content %}
 
-<div class= " image pb-5" style=" background-image:url(/static/images/loginbg.jpg)">
-<div class="container " >
+<div class=" image pb-5" style=" background-image:url(/static/images/loginbg2.jpg)">
+    <div class="container ">
 
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h1 class="text-center">Login</h1>
-           {% include 'messages.html' %}
-            <div class="card py-2 px-2">
-                <form class="form" action="" method="POST">
-                    {% csrf_token %}
-                    {{ login_form | bootstrap_horizontal }}<button type="submit" class="btn btn-primary mt-3">Login</button>
-                </form>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 ">
+                <h1 class="text-center" style="color:White">Login</h1>
+                {% include 'messages.html' %}
+                <div class="card py-2 px-2 " style="background:transparent; color:white">
+                    <form class="form " action="" method="POST">
+                        {% csrf_token %}
+                        {{ login_form | bootstrap_horizontal }}
+                        <button type="submit" class="btn btn-info mt-3 " style="margin-left:450px">Login</button>
+                    </form>
+                </div>
+                <b style="color:White; margin:200px 0px 0px 200px ">Don't have an account?</b><br>
+                <a class="btn btn-warning btn-sm mb-5" style="margin:20px 0px 0px 250px " href="/register">Sign up</a>
             </div>
-            <b class="mt-5">Don't have an account?</b><br>
-            <a class="btn btn-primary btn-sm mb-5" href="/register">Sign up</a>
-        </div>
     </div>
 </div>
 </div>
