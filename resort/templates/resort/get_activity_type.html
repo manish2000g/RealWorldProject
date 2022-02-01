@@ -1,0 +1,43 @@
+{% extends 'admin_layout.html' %}
+{% block title %}
+<title>All activity types</title>
+{% endblock%}
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1" >
+            <h1 class="text-center">All activity types</h1>
+            {% include 'messages.html' %}
+            <div class="card p-2" style=" background-color:#D8F6CE">
+                <a class="btn btn-primary btn-sm ms-auto" href="/resort/activity_type_form">Add new activity type</a>
+                <div>
+                    <form>
+                    </form>
+                </div>
+                <table class="table-striped">
+                    <tr>
+                        <th>activity type name</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for i in activity_types %}
+                    <tr>
+                        <td> {{ i.activity_type_name }}</td>
+                        <td> {{ i.activity_type_description }}</td>
+                        <td> {{ i.created_date }}</td>
+                        <td><img src="/{{ i.activity_type_img }}" width="150" ></td>
+                        <td><a class="btn btn-primary btn-sm"
+                               href="/resort/update_activity_type/{{i.id}}">Edit</a> &nbsp;
+                            <a class="btn btn-danger btn-sm"
+                               href="/resort/delete_activity_type/{{i.id}}"
+                               onclick="return confirm('Are you sure want to delete this activity type?')"
+                            >Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

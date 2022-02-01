@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import ProfileForm
+from .forms import ProfileForm,CreateUserForm
 from accounts.auth import user_only, admin_only
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from resort.models import Activity
@@ -38,7 +38,7 @@ def user_login(request):
 
 def user_register(request):
     if request.method=='POST':
-        form= UserCreationForm(request.POST)
+        form= CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             user = form.save()
@@ -50,7 +50,7 @@ def user_register(request):
             messages.add_message(request,messages.ERROR,"Invalid input, Try again")
             return render(request,'accounts/register.html',{'register_form':form})
     context={
-        'register_form':UserCreationForm,
+        'register_form':CreateUserForm(),
         'activate_register':'active'
     }
     return render(request,'accounts/register.html',context)

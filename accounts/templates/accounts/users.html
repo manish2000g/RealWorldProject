@@ -1,0 +1,45 @@
+{% extends 'admin_layout.html' %}
+{% block title %}
+<title>All Users</title>
+{% endblock%}
+
+{% block main_content %}
+<div class="container" style="height:100vh">
+    <div class="row">
+
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center" style="color:white">All Users</h1>
+            <div class="card p-2" style="background-color:transparent; border-color:yellow; color:white">
+                {% include 'templates/messages.html' %}
+                <table class="table-striped">
+                    <tr>
+                        <th>Username</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for i in users %}
+                    <tr>
+                        <td> {{ i.username }}</td>
+
+                        <td><a class="btn btn-outline-success btn-md" style="color:white"
+                               href="/promote_user/{{i.id}}"
+                               onclick="return confirm('Are you sure want to promote this user?')"
+                            >Promote to Admin</a>
+                            <a class="btn btn-outline-danger btn-md"  style="color:white; margin-left:500px"
+                               href="/deactivate_user/{{i.id}}"
+                               onclick="return confirm('Are you sure want to deactivate this user?')">Deactivate</a> &nbsp;
+                            <a class="btn btn-outline-info btn-md" style="color:white"
+                               href="/activate_user/{{i.id}}"
+                               onclick="return confirm('Are you sure want to activate this user?')">Activate</a>
+                            &nbsp;
+
+
+                            </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

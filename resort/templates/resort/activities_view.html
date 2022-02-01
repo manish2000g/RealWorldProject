@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+<title>activities</title>
+{% endblock title %}
+{% block main_content %}
+<div>
+    <div class="container mt-3">
+         <div>
+                <h1 class="" >Our activities</h1>
+             <form class="w-100">
+            <div class="input-group search w-25"><input name="q" type="text" placeholder="Search" class="form-control"/>
+                <div class="input-group-append">
+                    <button class="btn btn-success ms-2" type="submit"> Search</button>
+                </div>
+            </div>
+        </form>
+            </div>
+        <div class="row justify-content-around">
+            {% include 'messages.html' %}
+            {% for i in activities %}
+<!--            <div class="card col-md-3 m-3 activity-card"  style=" background-color:#DE073B">-->
+<!--                <img src="/{{i.activity_img}}" class="card-img-top" alt="...">-->
+<!--                <div class="card-body" style=" background-color:#DE073B">-->
+<!--                    <h5 class="card-title mt-1">{{i.activity_name}}</h5>-->
+<!--                    <p class="card-text">Price: Rs. {{i.activity_price}}</p>-->
+<!--                    <p class="card-text">{{i.activity_type.activity_type_name}}</p>-->
+<!--                    <a href="/resort/add_to_cart/{{i.id}}" class="btn btn-primary activity-btn"-->
+<!--                       onclick="return confirm('Are you sure want to add this item to cart?')">Add to Cart</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div class="card col-md-3 m-3 activity-card"  style=" background-color:#D8F6CE">
+                <img src="/{{i.activity_img}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title mt-1">{{i.activity_name}}</h5>
+                    <p class="card-text">Price: Rs. {{i.activity_price}}</p>
+                    <p class="card-text">{{i.activity_type.activity_type_name}}</p>
+                    <a href="/resort/add_to_cart/{{i.id}}" class="btn btn-primary activity-btn"
+                       onclick="return confirm('Are you sure want to add this item to cart?')">Add to Cart</a>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

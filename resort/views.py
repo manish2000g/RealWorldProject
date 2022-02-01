@@ -5,6 +5,8 @@ from .models import Activity_Type, Activity, Cart, Order
 from accounts.auth import admin_only, user_only
 from django.contrib.auth.decorators import login_required
 import os
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 @login_required
@@ -271,6 +273,11 @@ def user_order(request):
 
 def home(request):
     activity_types = Activity_Type.objects.all().order_by('-id')
+    if request.method == "POST":
+        subject = request.POST.get("subject")
+        email = request.POST.get("email")
+        desc = request.POST.get("desc") + "\n" + "Send to: "+email
+        send_mail(subject, desc, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], fail_silently=False)
     context = {
         'activity_types': activity_types,
     }

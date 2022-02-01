@@ -26,20 +26,20 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="container userdash mb-5 mt-5" style=" background-image: url(/)">
+<div class="container userdash mb-5 mt-5" style="border-style:solid;background-color:white">
      <H1 class="title">What we provide</H1> <br>
         <b class="title" >These are the types of activities we provide to our customer.</b>
     <div class="row justify-content-around">
         {% for i in activity_types %}
-        {% if i.activity_type_name == "Non-vegeterian products" %}
-        <div class="card col-md-3 m-2 mt-5"  style=" background-color:#DE073B">
-            <img src="/{{i.activity_type_img}}" class="card-img-top" alt="...">
-            <div class="card-body" style=" background-color:#DE073B" >
-                <h5 class="card-title">{{i.activity_type_name}}</h5>
-                <p class="card-text">{{i.activity_type_description}}</p>
-            </div>
-        </div>
-        {% else %}
+<!--        {% if i.activity_type_name == "Non-vegeterian products" %}-->
+<!--        <div class="card col-md-3 m-2 mt-5"  style=" background-color:#DE073B">-->
+<!--            <img src="/{{i.activity_type_img}}" class="card-img-top" alt="...">-->
+<!--            <div class="card-body" style=" background-color:#DE073B" >-->
+<!--                <h5 class="card-title">{{i.activity_type_name}}</h5>-->
+<!--                <p class="card-text">{{i.activity_type_description}}</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        {% else %}-->
         <div class="card col-md-3 m-2 mt-5" style=" background-color:#D8F6CE">
             <img src="/{{i.activity_type_img}}" class="card-img-top" alt="...">
             <div class="card-body">
@@ -47,12 +47,12 @@
                 <p class="card-text">{{i.activity_type_description}}</p>
             </div>
         </div>
-        {% endif %}
+<!--        {% endif %}-->
         {% endfor %}
     </div>
 </div>
     <!--Section: Contact v.2-->
-    <section class="mb-4 container">
+    <section class="mb-4 container" style="border-style:solid;background-color:white">
 
         <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
@@ -65,16 +65,17 @@
 
             <!--Grid column-->
             <div class="col-md-9 mb-md-0 mb-5">
-                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
+                <form id="contact-form" name="contact-form" method="POST">
+                    {% csrf_token %}
                     <!--Grid row-->
                     <div class="row">
 
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
+                                <label for="name" class=""><b>Your name</b></label>
                                 <input type="text" id="name" name="name" class="form-control">
-                                <label for="name" class="">Your name</label>
+
                             </div>
                         </div>
                         <!--Grid column-->
@@ -82,8 +83,9 @@
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
+                                <label for="email" class=""><b>Your email</b></label>
                                 <input type="text" id="email" name="email" class="form-control">
-                                <label for="email" class="">Your email</label>
+
                             </div>
                         </div>
                         <!--Grid column-->
@@ -95,8 +97,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="md-form mb-0">
+                                 <label for="subject" class=""><b>Subject</b></label>
                                 <input type="text" id="subject" name="subject" class="form-control">
-                                <label for="subject" class="">Subject</label>
+
                             </div>
                         </div>
                     </div>
@@ -109,41 +112,21 @@
                         <div class="col-md-12">
 
                             <div class="md-form">
-                                <textarea type="text" id="message" name="message" rows="2"
+                                <label for="message"><b>Your message</b></label>
+                                <textarea type="text" id="message" name="desc" rows="2"
                                           class="form-control md-textarea"></textarea>
-                                <label for="message">Your message</label>
+
                             </div>
 
                         </div>
                     </div>
                     <!--Grid row-->
-
+                    <button class="btn btn-info btn-sm mb-5 mt-5 ms-2" type="submit">Submit</button>
                 </form>
 
-                <div class="text-center text-md-left">
-                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-                </div>
-                <div class="status"></div>
-            </div>
-            <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-md-3 text-center">
-                <ul class="list-unstyled mb-0">
-                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                        <p>San Francisco, CA 94126, USA</p>
-                    </li>
 
-                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                        <p>+ 01 234 567 89</p>
-                    </li>
-
-                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                        <p>contact@mdbootstrap.com</p>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
 
         </div>
 
