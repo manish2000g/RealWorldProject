@@ -5,13 +5,13 @@
 
 {% block main_content %}
 
-<div class="container">
+<div class="container" style="height:100vh">
     <div class="row">
 
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center">All Admins</h1>
-            <div class="card p-2" style=" background-color:#D8F6CE">
-               {% include 'messages.html' %}
+            <h1 class="text-center" style="color:white">All Admins</h1>
+            <div class="card p-2" style=" background-color:transparent;color:white;border-color:yellow">
+                {% include 'messages.html' %}
 
                 <table class="table-striped">
                     <tr>
@@ -22,7 +22,7 @@
                     <tr>
                         <td> {{ i.username }}</td>
                         <td>
-                            <a class="btn btn-danger btn-sm"
+                            <a class="btn btn-outline-danger btn-md" style="color:white"
                                href="/demote_user/{{i.id}}"
                                onclick="return confirm('Are you sure want to demote this user?')"
                             >Demote to User</a></td>

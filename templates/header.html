@@ -1,7 +1,10 @@
 {% load static%}
-<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% block css_files %}
+<link rel="stylesheet" href="{% static './css/style.css' %}"/>
+{% endblock css_files%}
 
-<nav class="navbar navbar-expand-lg navbar-light navbg">
+
+<nav class="navbar navbar-expand-lg fixed-top navbg">
     <div class="container-fluid">
         <a class="navbar-brand" href="/resort/home">All adventure Resort</a>
         <!--       <img class="img-fluid me-5" style="width:40px; height:30px;"-->
@@ -12,14 +15,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item nav-focus ">
-                    <a class="nav-link {{activate_user_activity}} light nav-focus" href="/resort/activities_view">All
-                        adventure Resort</a>
-                </li>
+                <!--                <li class="nav-item nav-focus ">-->
+                <!--                    <a class="nav-link {{activate_user_activity}} light nav-focus" href="/resort/activities_view">All-->
+                <!--                        adventure Resort</a>-->
+                <!--                </li>-->
                 {% if user.is_authenticated %}
+                <li class="nav-item nav-focus ">
+                    <a class="nav-link {{activate_user_activity}} light nav-focus" href="/resort/activities_view">Our
+                        Activities</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link {{activate_our_activities}} light nav-focus" aria-current="page"
-                       href="/resort/user_cart">Our Activities</a>
+                       href="/resort/user_cart"> User Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{activate_events}} white nav-focus" href="/resort/user_order">Order History</a>
