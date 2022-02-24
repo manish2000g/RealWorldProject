@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>User Orders</title>
+{% endblock title %}
+{% block main_content %}
+<div class="container-fluid" style="min-height:300px;">
+    <div class="row">
+        <div class="col mt-4 mb-4">
+            <h1 class="text-center text-uppercase m-4 font-weight-bold">User Order History</h1>
+            {% include 'messages.html' %}
+            <div class="card shadow-lg ">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Activity Name</th>
+                            <th>Activity Price</th>
+                            <th>Total People</th>
+                            <th>Total Price</th>
+                            <th>Ordered Date</th>
+                            <th>Contact No</th>
+                            <th>Pick Up Location</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="align-Activities-center">
+                        {% for item in items %}
+                        <tr >
+                            <td>{{item.activity.activity_name}}</td>
+                            <td>Rs.{{item.activity.activity_price}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.created_date}}</td>
+                            <td>{{item.contact_no}}</td>
+                            <td>{{item.user_address}}</td>
+                            <td>{{item.status}}</td>
+                                                    </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

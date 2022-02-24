@@ -39,16 +39,16 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link {{activate_profile}} btn btn-outline-info ms-5 "
+                    <a class="nav-link {{activate_profile}} btn btn-outline-info ms-5"
                        href="/profile">{{request.user.username}}</a>
                 </li>
 
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link {{activate_login}} btn btn-outline-light ms-4" href="/login">Sign in</a>
+                    <a class="nav-link {{activate_login}} btn btn-outline-info ms-4" href="/login">Sign in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{activate_register}} btn btn-outline-light ms-2" href="/register">Sign up</a>
+                    <a class="nav-link {{activate_register}} btn btn-outline-primary ms-2" href="/register">Sign up</a>
                 </li>
                 {% endif %}
 

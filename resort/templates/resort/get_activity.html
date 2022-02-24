@@ -1,0 +1,44 @@
+{% extends 'admin_layout.html' %}
+{% block title %}
+<title>All activities</title>
+{% endblock%}
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center" style="color:white">All activities</h1>
+            {% include 'messages.html' %}
+            <div class="card p-2" style=" background-color:transparent; color:white; border-color:yellow">
+                <a class="btn btn-outline-warning btn-md ms-auto"  href="/resort/activity_form">Add new activity</a>
+                <div>
+                    <form>
+                    </form>
+                </div>
+                <table class="table-striped">
+                    <tr>
+                        <th>Activity name</th>
+                        <th>Price</th>
+                        <th>activity type</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for i in activities %}
+                    <tr>
+                        <td> {{ i.activity_name }}</td>
+                        <td> {{ i.activity_price }}</td>
+                        <td> {{ i.activity_type.activity_type_name }}</td>
+                        <td><img src="/{{ i.activity_img }}" width="150" ></td>
+                        <td><a class="btn btn-outline-info btn-md" style="color:white"
+                               href="/resort/update_activity/{{i.id}}">Edit</a> &nbsp;
+                            <a class="btn btn-outline-danger btn-md" style="color:white"
+                               href="/resort/delete_activity/{{i.id}}"
+                               onclick="return confirm('Are you sure want to delete this activity?')"
+                            >Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
