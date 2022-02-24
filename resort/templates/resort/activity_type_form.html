@@ -1,0 +1,30 @@
+{% extends 'admin_layout.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>Add Activity type</title>
+{% endblock%}
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center">Add New Activity type</h1>
+           {% include 'messages.html' %}
+            <div class="card py-2 px-2">
+                <form class="form" action="" method="POST"  enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ activity_type_form | bootstrap_horizontal }}
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Add new activity type"
+    form_fields[3].placeholder = "Description"
+    for (field in form_fields){
+    form_fields[field].className += ' my-3'
+    }
+</script>
+{% endblock %}

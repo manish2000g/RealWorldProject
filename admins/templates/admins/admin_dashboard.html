@@ -14,17 +14,19 @@
     color:orange;
     }
 
+
 </style>
-<div class="container">
+<div class="container" style="color:white">
     <h1>Admin Dashboard</h1>
     {% include 'messages.html' %}
     <div class="row">
 
-   {% csrf_token %}
+        {% csrf_token %}
         <div class="col">
-            <div class="card text-white bg-success mb-3" style="max-width: 35rem;">
+            <div class="card text-white mb-3"
+                 style="max-width: 35rem;background-color:transparent;border-color:green;border-width:6px">
                 <div class="card-header text-center">Total Users</div>
-                <div class="card-body bg-success">
+                <div class="card-body" style="background-color:transparent;border-color:green">
                     <a href="/admins/users"><h1 class="card-title text-center">{{user}}</h1></a>
 
                 </div>
@@ -36,25 +38,27 @@
 
 
         <div class="col">
-            <div class="card text-white bg-warning mb-3" style="max-width: 35rem;">
+            <div class="card text-white  mb-3"
+                 style="max-width: 35rem;background-color:transparent;border-color:yellow;border-width:6px">
                 <div class="card-header text-center">Total Admins</div>
-                <div class="card-body bg-warning">
-                    <a href="/admins/admins"> <h1 class="card-title text-center">{{admin}}</h1>
+                <div class="card-body">
+                    <a href="/admins/admins"><h1 class="card-title text-center">{{admin}}</h1>
                     </a>
                 </div>
-                 </div>
+            </div>
 
-                 <div class="col">
+            <div class="col">
 
 
-            <div class="card text-white bg-danger mb-3 mt-5" style="max-width: 35rem;">
-                <div class="card-header text-center">Order Details</div>
-                <div class="card-body bg-danger">
-                    <a href="/admins/show_order"><h1 class="card-title text-center">{{items}}</h1></a>
+                <div class="card text-white  mb-3 mt-5"
+                     style="max-width: 35rem;background-color:transparent;border-color:red;border-width:6px">
+                    <div class="card-header text-center">Order Details</div>
+                    <div class="card-body">
+                        <a href="/admins/show_order"><h1 class="card-title text-center">{{items}}</h1></a>
+                    </div>
+
                 </div>
-
-        </div>
-    </div>
+            </div>
             </div>
         </div>
     </div>

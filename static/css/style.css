@@ -3,3 +3,52 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
+.nav-focus:hover{
+    color:MidnightBlue !important;
+    }
+
+.navbg{
+    background-color:Snow}
+
+.navbar {
+    transition: all 0.4s;
+}
+.navbar li {
+    position: relative;
+    height: 100%;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.show .dropdown-item:hover {
+    background: transparent !important;
+    color: orange !important;
+}
+.drop-blur {
+    backdrop-filter: blur(15px);
+}
+/* Change navbar styling on scroll */
+.navbar.active {
+    backdrop-filter: blur(25px);
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+}
+.navbar.active .nav-link,
+.navbar.active .navbar-brand {
+    transition: all 0.4s;
+    color: orange;
+}
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+#navbarSupportedContent i {
+    padding: 0 0.5rem;
+}
